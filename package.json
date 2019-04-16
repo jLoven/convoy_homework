@@ -14,8 +14,12 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.5",
     "babel-preset-react": "^6.24.1",
+    "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-key-index": "^0.1.1",
+    "shortid": "^2.2.14",
+    "twix": "^1.2.1",
     "webpack": "^4.29.6",
     "webpack-dev-server": "^3.3.1"
   },
