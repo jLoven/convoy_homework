@@ -3,16 +3,7 @@ import ReactDOM from 'react-dom';
 import shortid from 'shortid'; //  Generate unique key for items in Offers list
 var moment = require('moment');
 const DATE_FORMAT = 'ddd M/D hh:mma';
-
-const Input = ({
-    value,
-}) => {
-    return (
-        <input 
-        value={ value }
-        />
-    );
-};
+const OFFERS_PER_REQUEST = 3;
 
 /*  
 ** Formats a timestamp as 'Mon 4/30 02:00am' given a timestamp in the format '2018-04-30T09:00:00.000Z'
@@ -42,7 +33,11 @@ function formatDistance(miles) {
 ** TODO: Utilize library such as Twix (http://isaaccambron.com/twix.js/) to format timestamp ranges.
 */
 function formatTimestampRange(startTimestamp, endTimestamp) {
-    return formatTimestamp(startTimestamp) + ' — ' + formatTimestamp(endTimestamp);
+    if (startTimestamp === endTimestamp) {
+        return formatTimestamp(startTimestamp);
+    } else {
+        return formatTimestamp(startTimestamp) + ' — ' + formatTimestamp(endTimestamp);
+    }
 }
 
 /*
@@ -70,6 +65,13 @@ function getOfferDataUiList(offers) {
     return offers.map(offer => constructOfferDataUi(offer));
 }
 
+function getApiEndpointWithQueryParams(paginationStart) {
+    return 'https://convoy-frontend-homework-api.herokuapp.com/offers?limit=' 
+        + OFFERS_PER_REQUEST 
+        + '&offset='
+        + paginationStart;
+}
+
 class App extends React.Component {
     constructor() {
         super();
@@ -77,18 +79,19 @@ class App extends React.Component {
             offers: [],
             error: null,
             isLoaded: false,
-            inputValue: 'First Commit!',
+            paginationStart: 0,
         };
     }
 
-    componentDidMount() {
-        fetch("https://convoy-frontend-homework-api.herokuapp.com/offers?limit=20")
+    getNextPaginatedOffers(endpoint) {
+        fetch(endpoint)
         .then(res => res.json())
         .then(
             (result) => {
                 this.setState({
                     isLoaded: true,
-                    offers: result
+                    offers: this.state.offers.concat(result),
+                    paginationStart: this.state.paginationStart + OFFERS_PER_REQUEST,
                 });
             },
             (error) => {
@@ -97,11 +100,17 @@ class App extends React.Component {
                     error
                 });
             }
-        )
+        );
+    }
+
+    componentDidMount() {
+        const { paginationStart } = this.state;
+        const endpoint = getApiEndpointWithQueryParams(paginationStart);
+        this.getNextPaginatedOffers(endpoint);
     }
 
     render() {
-        const { error, isLoaded, offers, inputValue } = this.state;
+        const { error, isLoaded, offers, inputValue, paginationStart } = this.state;
         const offerDataUiList = getOfferDataUiList(offers);
         if (error) {
             console.log('Error in rendering Convoy Homework: ', error.message)
@@ -110,31 +119,26 @@ class App extends React.Component {
             return <div>Loading...</div>;
         } else {
             return (
-                <ul>
-                    {offerDataUiList.map(offerDataUi => (
-                        <li key={ shortid.generate() }>
-                            <div>{ offerDataUi.priceDisplayString }</div>
-                            <div>From: { offerDataUi.originDisplayString }</div>
-                            <div>Pickup time range: { offerDataUi.pickupTimeRangeDisplayString }</div>
-                            <div>To: { offerDataUi.destinationDisplayString }</div>
-                            <div>Dropoff time range: { offerDataUi.dropoffTimeRangeDisplayString }</div>
-                            <div>Distance: { offerDataUi.distanceDisplayString }</div>
-                        </li>
-                    ))}
-                </ul>
+                <div>
+                    <ul>
+                        {offerDataUiList.map(offerDataUi => (
+                            <li key={ shortid.generate() }>
+                                <div>{ offerDataUi.priceDisplayString }</div>
+                                <div>From: { offerDataUi.originDisplayString }</div>
+                                <div>Pickup time: { offerDataUi.pickupTimeRangeDisplayString }</div>
+                                <div>To: { offerDataUi.destinationDisplayString }</div>
+                                <div>Dropoff time: { offerDataUi.dropoffTimeRangeDisplayString }</div>
+                                <div>Distance: { offerDataUi.distanceDisplayString }</div>
+                            </li>
+                        ))}
+                    </ul>
+                    <button onClick={() => 
+                        this.getNextPaginatedOffers(
+                            getApiEndpointWithQueryParams(paginationStart)) 
+                    }>Show More</button>
+                </div>
             );
         }
-
-        /*return (
-            <div>
-                <Input 
-                    value={ inputValue }
-                    />
-                <button> 
-                    Here is a sample button
-                </button>
-            </div>
-        );*/
     }
 }
 
