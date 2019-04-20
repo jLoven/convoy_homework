@@ -1,0 +1,58 @@
+/*  TODO: Change to ProximaNova upon receipt of font license. */
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo {
+	width: 6.9rem;
+}
+
+.list-background {
+	background: white;
+}
+
+.rounded-corner-boundary {
+	border-radius: 4px;
+}
+
+.list-boundary {
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+}
+
+.page-background {
+	background: #F7F9FA;
+}
+
+.show-more-button {
+	background: #848E93;
+	color: white;
+	font-size: 1rem;
+	height: 2.6rem;
+	width: 11.9rem;
+	font-weight: bold;
+	border: 2px solid #848E93;
+}
+
+.header-text {
+	color: #0B2127;
+	display: flex;
+}
+
+.header-tab {
+	margin-left: 1rem;
+	border-bottom: 4px solid #F65335;
+}
+
+.name-text {
+	text-align: center;
+	font-size: 1.5rem;
+	color: #B4BBBF;
+}
+
+.dropdown-boundary {
+	border: 1px solid #D6DADC;
+}
+
+.dropdown-text {
+	display: flex;
+}

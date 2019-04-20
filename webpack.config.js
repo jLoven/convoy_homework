@@ -13,6 +13,19 @@ module.exports = {
             include: [
                 path.resolve(__dirname, 'src'),
             ],
+        },
+        {
+            test: /\.(png|svg|jpg|gif)$/,
+            use: [
+                'file-loader'
+            ]
+        },
+        {
+            test: /\.css$/,
+            use: [
+                'style-loader',
+                'css-loader'
+            ]
         }]
     },
     devServer: {

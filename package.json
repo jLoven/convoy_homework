@@ -10,15 +10,21 @@
     "start-dev": "webpack-dev-server"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.5",
     "babel-preset-react": "^6.24.1",
+    "css-loader": "^2.1.1",
+    "fetch-retry": "^2.0.0",
+    "file-loader": "^3.0.1",
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-fontawesome": "^1.6.1",
     "react-key-index": "^0.1.1",
     "shortid": "^2.2.14",
+    "style-loader": "^0.23.1",
     "twix": "^1.2.1",
     "webpack": "^4.29.6",
     "webpack-dev-server": "^3.3.1"
