@@ -13,6 +13,7 @@ import { OFFERS_API, OFFERS_PER_REQUEST, DROPDOWN_VALUES, RETRY_CONDITIONS } fro
 import { formatTimestamp, formatPriceInUsd, formatDistance, formatTimestampRange } from './format/formatter.js';
 
 import './styles/offers.css';
+import './styles/dropdown.css';
 
 /*
  * Extracts fields from the offer to construct an object holding values for use in the UI.
@@ -130,7 +131,7 @@ class App extends Component {
                 <div>
                     <div className='page-background'>
                         <HeaderMenu />
-                        <div className='rounded-corner-boundary dropdown-text'>
+                        <div className='rounded-corner-boundary dropdown-text dropdown'>
                             Sort by: <Dropdown
                                 title={ DROPDOWN_VALUES[0].title }
                                 list={ this.state.sortType }
@@ -138,7 +139,7 @@ class App extends Component {
                         </div>
                         <ul className='list-background list-boundary rounded-corner-boundary'>
                             {offerDataUiList.map(offerDataUi => (
-                                <li key={ shortid.generate() }>
+                                <li className='list-separator' key={ shortid.generate() }>
                                     <div>{ offerDataUi.priceDisplayString }</div>
                                     <div>From: { offerDataUi.originDisplayString }</div>
                                     <div>Pickup time: { offerDataUi.pickupTimeRangeDisplayString }</div>

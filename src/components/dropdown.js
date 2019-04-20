@@ -4,6 +4,7 @@
 //  https://github.com/dbilgili/Custom-ReactJS-Dropdown-Components/blob/master/src/components/Dropdown.js
 
 import React, { Component } from 'react';
+import './../styles/dropdown.css';
 
 class Dropdown extends Component {
     constructor(props) {
@@ -52,15 +53,15 @@ class Dropdown extends Component {
         const { list } = this.props;
         const { listOpen, headerTitle } = this.state;
         return (
-            <div className="dd-wrapper">
-                <div className="dd-header" onClick={() => this.toggleList()}>
-                    <div className="dd-header-title">
+            <div>
+                <div onClick={() => this.toggleList()}>
+                    <div>
                         { headerTitle } { listOpen ? '\u2303 ' : '\u2304' }
                     </div>
                 </div>
-                { listOpen && <ul className="dd-list" onClick={ e => e.stopPropagation() }>
+                { listOpen && <ul className='dropdown-content' onClick={ e => e.stopPropagation() }>
                     {list.map((item)=> (
-                        <li className="dd-list-item"
+                        <li className='dropdown-content-links dropdown-title-label'
                             key={ item.id }
                             onClick={() => this.selectItem(item.title, item.id, item.key, item.sortParam)}>
                                 {item.title}

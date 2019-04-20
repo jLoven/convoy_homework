@@ -1,0 +1,33 @@
+.dropdown-text {
+    display: flex;
+    border: 1px solid #D6DADC;
+    margin-top: 1.5rem;
+    color: #5A666C;
+}
+
+.dropdown-label {
+    color: #003100;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 0;
+}
+
+.dropdown-content-links {
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown-content-links:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}

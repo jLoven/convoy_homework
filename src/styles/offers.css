@@ -17,6 +17,12 @@
 
 .list-boundary {
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+	padding: 0;
+}
+
+.list-separator {
+	list-style-type: none;
+	border-bottom: 1px solid #D6DADC;
 }
 
 .page-background {
@@ -31,6 +37,7 @@
 	width: 11.9rem;
 	font-weight: bold;
 	border: 2px solid #848E93;
+	margin: 0.5rem 2rem 1rem;
 }
 
 .header-text {
@@ -47,12 +54,4 @@
 	text-align: center;
 	font-size: 1.5rem;
 	color: #B4BBBF;
-}
-
-.dropdown-boundary {
-	border: 1px solid #D6DADC;
-}
-
-.dropdown-text {
-	display: flex;
 }
