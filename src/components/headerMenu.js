@@ -7,7 +7,7 @@ import '../styles/offers.css';
 class HeaderMenu extends Component {
 	render() {
 		return(
-			<div className='list-background header-text'>
+			<div className='list-background header-text subheading-text'>
 				<div>
 	                <img src={ConvoyLogoImage} alt='Convoy Logo' className='logo' />
 	            </div>

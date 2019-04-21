@@ -37,7 +37,7 @@ function formatTimestampRange(startTimestamp, endTimestamp) {
     if (startTimestamp === endTimestamp) {
         return formatTimestamp(startTimestamp);
     } else {
-        return formatTimestamp(startTimestamp) + ' — ' + formatTimestamp(endTimestamp);
+        return formatTimestamp(startTimestamp) + ' – ' + formatTimestamp(endTimestamp);
     }
 }
 

@@ -9,7 +9,7 @@ class Error extends Component {
 		return(
 			<div className='error-text'>
                 <div className='error-image'>
-                    <img src={TortoiseImage} alt='Russki the Tortoise is sorry' />
+                    <img src={ TortoiseImage } alt='Russki the Tortoise is sorry' />
                 </div>
                 Sorry, something went wrong. Please refresh the page.
             </div>

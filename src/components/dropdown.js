@@ -36,11 +36,11 @@ class Dropdown extends Component {
         this.setState({ listOpen: false });
     }
 
-    selectItem(title, id, stateKey, sortParam) {
+    selectItem(title, id) {
         this.setState({
             headerTitle: title,
             listOpen: false
-        }, this.props.resetThenSet(id, stateKey));
+        }, this.props.selectDropdownItem(id));
     }
 
     toggleList() {
@@ -55,15 +55,13 @@ class Dropdown extends Component {
         return (
             <div>
                 <div onClick={() => this.toggleList()}>
-                    <div>
-                        { headerTitle } { listOpen ? '\u2303 ' : '\u2304' }
-                    </div>
+                    { headerTitle } { '\u2304' }
                 </div>
                 { listOpen && <ul className='dropdown-content' onClick={ e => e.stopPropagation() }>
                     {list.map((item)=> (
                         <li className='dropdown-content-links dropdown-title-label'
                             key={ item.id }
-                            onClick={() => this.selectItem(item.title, item.id, item.key, item.sortParam)}>
+                            onClick={() => this.selectItem(item.title, item.id)}>
                                 {item.title}
                         </li>
                     ))}

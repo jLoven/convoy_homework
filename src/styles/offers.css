@@ -1,57 +1,125 @@
 /*  TODO: Change to ProximaNova upon receipt of font license. */
 * {
     font-family: 'Montserrat', sans-serif;
+    line-height: 1.3rem;
 }
 
 .logo {
-	width: 6.9rem;
+    width: 6.9rem;
+}
+
+.subheading-text {
+    font-size: 0.9rem;
 }
 
 .list-background {
-	background: white;
+    background: white;
 }
 
 .rounded-corner-boundary {
-	border-radius: 4px;
+    border-radius: 4px;
 }
 
 .list-boundary {
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
-	padding: 0;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+    padding: 0;
 }
 
 .list-separator {
-	list-style-type: none;
-	border-bottom: 1px solid #D6DADC;
+    border-bottom: 1px solid #D6DADC;
 }
 
 .page-background {
-	background: #F7F9FA;
+    background: #F7F9FA;
+}
+
+.list-element-margin {
+    width: 92vw;
+    margin: 1rem auto auto auto;
 }
 
 .show-more-button {
-	background: #848E93;
-	color: white;
-	font-size: 1rem;
-	height: 2.6rem;
-	width: 11.9rem;
-	font-weight: bold;
-	border: 2px solid #848E93;
-	margin: 0.5rem 2rem 1rem;
+    background: #848E93;
+    color: white;
+    height: 2.6rem;
+    width: 11.9rem;
+    font-weight: bold;
+    border: 2px solid #848E93;
+    margin: 1.5rem 2rem 1rem;
 }
 
 .header-text {
-	color: #0B2127;
-	display: flex;
+    color: #0B2127;
+    display: flex;
+    width: 96vw;
+    height: 2.5rem;
+    padding: 1rem 0 0 2.3rem;
+    margin: -0.5rem 0 2rem -1vw;
 }
 
 .header-tab {
-	margin-left: 1rem;
-	border-bottom: 4px solid #F65335;
+    margin-left: 2rem;
+    border-bottom: 4px solid #F65335;
+    padding: 0.2rem 1.2rem 0 1.2rem;
 }
 
 .name-text {
-	text-align: center;
-	font-size: 1.5rem;
-	color: #B4BBBF;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #B4BBBF;
+    background: white;
+    height: 3rem;
+    padding-top: 1rem;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 2.5rem 0 1rem 0;
+}
+
+.flex-container .flex-div {
+    width: 200px;
+    margin: 10px;
+}
+
+.hidden-flex-div {
+    flex: 0 0 5%;
+}
+
+.large-hidden-flex-div {
+    flex: 20 0 5%;
+}
+
+.location-connecting-line {
+    height: 3.8rem;
+}
+
+.location-connecting-line-wrapper {
+    padding: 0.3rem 0.7rem 1rem 1rem;
+    max-width: 5vw; /* Allows alt text space to show if needed */
+}
+
+.location-text {
+    font-weight: bold;
+}
+
+.date-text {
+    color: #7F8D99;
+    letter-spacing: 0.4px;
+    padding-bottom: 0.9rem;
+}
+
+.price-text {
+    width: 9rem;
+    font-weight: bold;
+    color: #49A54E;
+}
+
+.wide-letter-spacing {
+    letter-spacing: 0.45px;
+}
+
+.distance-text {
+    text-align: right;
 }

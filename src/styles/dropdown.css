@@ -1,11 +1,11 @@
 .dropdown-text {
     display: flex;
     border: 1px solid #D6DADC;
-    margin-top: 1.5rem;
     color: #5A666C;
+    padding: 1rem 0 1rem 0;
 }
 
-.dropdown-label {
+.dropdown-title-label {
     color: #003100;
 }
 
