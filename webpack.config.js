@@ -18,7 +18,10 @@ module.exports = {
             test: /\.(png|svg|jpg|gif)$/,
             use: [
                 'file-loader'
-            ]
+            ],
+            exclude: [
+                path.resolve(__dirname, 'src/screenshots'),
+            ],
         },
         {
             test: /\.css$/,
