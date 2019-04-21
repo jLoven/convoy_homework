@@ -42,7 +42,6 @@ function formatTimestampRange(startTimestamp, endTimestamp) {
 }
 
 export {
-    formatTimestamp,
     formatPriceInUsd,
     formatDistance,
     formatTimestampRange,

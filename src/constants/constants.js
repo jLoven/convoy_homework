@@ -61,9 +61,11 @@ const RETRY_CONDITIONS = {
 	retryOn: [500],
 };
 
+// Text shown on the UI
 const SORT_BY_TEXT = 'Sort by:';
 const LOADING_TEXT = 'Loading...';
 const SHOW_MORE_TEXT = 'Show More';
+const DROPDOWN_ICON = '\u00A0\u00A0\u2228';
 
 export {
     OFFERS_API,
@@ -74,4 +76,5 @@ export {
     SORT_BY_TEXT,
     LOADING_TEXT,
     SHOW_MORE_TEXT,
+    DROPDOWN_ICON,
 };

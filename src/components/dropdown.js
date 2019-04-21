@@ -1,11 +1,12 @@
 'use strict';
 
-//  Adapted from:
-//  https://github.com/dbilgili/Custom-ReactJS-Dropdown-Components/blob/master/src/components/Dropdown.js
-
 import React, { Component } from 'react';
+import { DROPDOWN_ICON } from './../constants/constants.js';
 import './../styles/dropdown.css';
 
+/*  Adapted from:
+ *  https://github.com/dbilgili/Custom-ReactJS-Dropdown-Components/blob/master/src/components/Dropdown.js
+ */
 class Dropdown extends Component {
     constructor(props) {
         super(props);
@@ -55,7 +56,7 @@ class Dropdown extends Component {
         return (
             <div>
                 <div className='dropdown-title-label' onClick={() => this.toggleList()}>
-                    { headerTitle } { '\u00A0\u00A0\u2228' }
+                    { headerTitle } { DROPDOWN_ICON }
                 </div>
                 { listOpen && <ul className='dropdown-content rounded-corner-boundary shadow' onClick={ e => e.stopPropagation() }>
                     {list.map((item)=> (

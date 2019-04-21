@@ -31,6 +31,5 @@ function getOfferDataUiList(offers) {
 }
 
 export {
-    constructOfferDataUi,
     getOfferDataUiList,
 };

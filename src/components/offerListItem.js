@@ -15,7 +15,10 @@ class OfferListItem extends Component {
         return (
             <li className='list-separator flex-container'>
                 <div className='location-connecting-line-wrapper'>
-                    <img src={ LocationConnectingLineImage } alt='Line between two dots' className='location-connecting-line' />
+                    <img 
+                        src={ LocationConnectingLineImage }
+                        alt='Line between two dots'
+                        className='location-connecting-line' />
                 </div>
                 <div className='location-and-date-flex-div '>
                     <div className='location-text wide-letter-spacing'>{ offerDataUi.originDisplayString }</div>

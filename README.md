@@ -1,5 +1,4 @@
-Author: Jackie Loven
-Date: 21 April 2019
+Author: Jackie Loven / Date: 21 April 2019
 
 #### View Convoy Frontend Homework: http://jackieloven.com/convoy-homework/
 
