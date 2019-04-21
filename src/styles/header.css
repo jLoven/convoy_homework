@@ -1,0 +1,18 @@
+.logo {
+    width: 6.9rem;
+}
+
+.header-text {
+    color: #0B2127;
+    display: flex;
+    width: 96vw;
+    height: 2.5rem;
+    padding: 1rem 0 0 2.3rem;
+    margin: -0.5rem 0 2rem -1vw;
+}
+
+.header-tab {
+    margin-left: 2rem;
+    border-bottom: 4px solid #F65335;
+    padding: 0.2rem 1.2rem 0 1.2rem;
+}

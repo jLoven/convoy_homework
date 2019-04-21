@@ -2,22 +2,20 @@
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import shortid from 'shortid'; //  Used to generate unique key for items in Offers list
 var fetch = require('fetch-retry');
+import shortid from 'shortid'; //  Used to generate unique key for items in Offers list
 
 import Dropdown from './components/dropdown.js';
 import HeaderMenu from './components/headerMenu.js';
 import Error from './components/error.js';
+import OfferListItem from './components/offerListItem.js';
 
-import { DROPDOWN_VALUES, RETRY_CONDITIONS } from './constants/constants.js';
+import { DROPDOWN_VALUES, RETRY_CONDITIONS, SORT_BY_TEXT, LOADING_TEXT, SHOW_MORE_TEXT } from './constants/constants.js';
 import { getOfferDataUiList } from './extractor/dataExtractor.js';
 import { getApiEndpointWithQueryParams, getNextPaginationStart } from './provider/apiEndpointProvider.js';
 
 import './styles/offers.css';
 import './styles/dropdown.css';
-
-import LocationConnectingLineImage from './images/location_connecting_line.png';
-
 
 class App extends Component {
     constructor() {
@@ -60,12 +58,19 @@ class App extends Component {
         );
     }
 
+    /*
+     * Adds the first page of offers with default sort to the page when it loads.
+     */
     componentDidMount() {
         const { paginationStart, sortParam } = this.state;
         const endpoint = getApiEndpointWithQueryParams(paginationStart, sortParam);
         this.getNextPaginatedOffers(endpoint, false);
     }
 
+    /*
+     * Retrieves a new page of offers when a new dropdown sort option is selected,
+     * given a dropdown sortType id.
+     */
     selectDropdownItem = (id) => {
         this.setState({
             paginationStart: 0,
@@ -83,47 +88,30 @@ class App extends Component {
             console.log('Error in rendering Convoy Homework: ', error.message);
             return <Error />;
         } else if (!isLoaded) {
-            return <div>Loading...</div>;
+            return <div>{ LOADING_TEXT }</div>;
         } else {
             return (
                 <div>
-                    <div>
-                        <HeaderMenu />
-                        <div className='rounded-corner-boundary dropdown-text dropdown list-element-margin'>
-                            Sort by: <Dropdown
+                    <HeaderMenu />
+                    <div className='rounded-corner-boundary dropdown-text dropdown list-element-margin subheading-text'>
+                        <span className='dropdown-sortby-text'>{ SORT_BY_TEXT }</span>
+                        <Dropdown
                                 title={ DROPDOWN_VALUES[0].title }
                                 list={ this.state.sortType }
                                 selectDropdownItem={ this.selectDropdownItem } />
-                        </div>
-                        <ul className='list-background list-boundary rounded-corner-boundary list-element-margin'>
-                            {offerDataUiList.map(offerDataUi => (
-                                <li className='list-separator flex-container' key={ shortid.generate() }>
-                                    <div className='location-connecting-line-wrapper'>
-                                        <img 
-                                            src={ LocationConnectingLineImage }
-                                            alt='Line between two dots'
-                                            className='location-connecting-line' />
-                                    </div>
-                                    <div className='location-and-date-flex-div '>
-                                        <div className='location-text wide-letter-spacing'>{ offerDataUi.originDisplayString }</div>
-                                        <div className='date-text subheading-text'>{ offerDataUi.pickupTimeRangeDisplayString }</div>
-                                        <div className='location-text wide-letter-spacing'>{ offerDataUi.destinationDisplayString }</div>
-                                        <div className='date-text subheading-text'>{ offerDataUi.dropoffTimeRangeDisplayString }</div>
-                                    </div>
-                                    <div className='large-hidden-flex-div'></div>
-                                    <div className='wide-letter-spacing'>{ offerDataUi.distanceDisplayString }</div>
-                                    <div className='hidden-flex-div'></div>
-                                    <div className='price-text wide-letter-spacing'>{ offerDataUi.priceDisplayString }</div>
-                                </li>
-                            ))}
-                        </ul>
-                        <button className='show-more-button rounded-corner-boundary subheading-text' onClick={() =>
-                            this.getNextPaginatedOffers(
-                                getApiEndpointWithQueryParams(paginationStart, sortParam),
-                                false)
-                        }>Show More</button>
                     </div>
-                    <div className='name-text'>Jackie Loven's Homework</div>
+                    <ul className='list-background list-boundary rounded-corner-boundary list-element-margin shadow'>
+                        {offerDataUiList.map(offerDataUi => (
+                            <OfferListItem offerDataUi={ offerDataUi } key={ shortid.generate() } />
+                        ))}
+                    </ul>
+                    <button 
+                        className='show-more-button rounded-corner-boundary subheading-text'
+                        onClick={() => this.getNextPaginatedOffers(
+                                getApiEndpointWithQueryParams(paginationStart, sortParam),
+                                false)}
+                    >{ SHOW_MORE_TEXT }</button>
+                    <div className='name-text list-background'>Jackie Loven's Homework</div>
                 </div>
             );
         }

@@ -61,10 +61,17 @@ const RETRY_CONDITIONS = {
 	retryOn: [500],
 };
 
+const SORT_BY_TEXT = 'Sort by:';
+const LOADING_TEXT = 'Loading...';
+const SHOW_MORE_TEXT = 'Show More';
+
 export {
     OFFERS_API,
     DATE_FORMAT,
     OFFERS_PER_REQUEST,
     DROPDOWN_VALUES,
     RETRY_CONDITIONS,
+    SORT_BY_TEXT,
+    LOADING_TEXT,
+    SHOW_MORE_TEXT,
 };

@@ -6,17 +6,15 @@
 }
 
 .dropdown-title-label {
-    color: #003100;
+    color: #1079A5;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: #F7F9FA;
     z-index: 1;
-    margin-top: 0;
+    padding-left: 0px;
 }
 
 .dropdown-content-links {
@@ -30,4 +28,10 @@
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.dropdown-sortby-text {
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+    color: #5A666C;
 }

@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import ConvoyLogoImage from '../images/convoy_logo.png';
 import '../styles/offers.css';
+import '../styles/header.css';
 
 class HeaderMenu extends Component {
 	render() {

@@ -54,10 +54,10 @@ class Dropdown extends Component {
         const { listOpen, headerTitle } = this.state;
         return (
             <div>
-                <div onClick={() => this.toggleList()}>
-                    { headerTitle } { '\u2304' }
+                <div className='dropdown-title-label' onClick={() => this.toggleList()}>
+                    { headerTitle } { '\u00A0\u00A0\u2228' }
                 </div>
-                { listOpen && <ul className='dropdown-content' onClick={ e => e.stopPropagation() }>
+                { listOpen && <ul className='dropdown-content rounded-corner-boundary shadow' onClick={ e => e.stopPropagation() }>
                     {list.map((item)=> (
                         <li className='dropdown-content-links dropdown-title-label'
                             key={ item.id }

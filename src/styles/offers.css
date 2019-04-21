@@ -1,15 +1,19 @@
-/*  TODO: Change to ProximaNova upon receipt of font license. */
+/*  TODO: Change typeface to ProximaNova upon receipt of font license. */
 * {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.3rem;
 }
 
-.logo {
-    width: 6.9rem;
+.page-background {
+    background: #F7F9FA;
 }
 
 .subheading-text {
     font-size: 0.9rem;
+}
+
+.wide-letter-spacing {
+    letter-spacing: 0.45px;
 }
 
 .list-background {
@@ -21,16 +25,15 @@
 }
 
 .list-boundary {
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
     padding: 0;
+}
+
+.shadow {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
 }
 
 .list-separator {
     border-bottom: 1px solid #D6DADC;
-}
-
-.page-background {
-    background: #F7F9FA;
 }
 
 .list-element-margin {
@@ -48,39 +51,10 @@
     margin: 1.5rem 2rem 1rem;
 }
 
-.header-text {
-    color: #0B2127;
-    display: flex;
-    width: 96vw;
-    height: 2.5rem;
-    padding: 1rem 0 0 2.3rem;
-    margin: -0.5rem 0 2rem -1vw;
-}
-
-.header-tab {
-    margin-left: 2rem;
-    border-bottom: 4px solid #F65335;
-    padding: 0.2rem 1.2rem 0 1.2rem;
-}
-
-.name-text {
-    text-align: center;
-    font-size: 1.5rem;
-    color: #B4BBBF;
-    background: white;
-    height: 3rem;
-    padding-top: 1rem;
-}
-
 .flex-container {
     display: flex;
     flex-wrap: nowrap;
     padding: 2.5rem 0 1rem 0;
-}
-
-.flex-container .flex-div {
-    width: 200px;
-    margin: 10px;
 }
 
 .hidden-flex-div {
@@ -92,7 +66,7 @@
 }
 
 .location-connecting-line {
-    height: 3.8rem;
+    height: 4rem;
 }
 
 .location-connecting-line-wrapper {
@@ -116,10 +90,10 @@
     color: #49A54E;
 }
 
-.wide-letter-spacing {
-    letter-spacing: 0.45px;
-}
-
-.distance-text {
-    text-align: right;
+.name-text {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #B4BBBF;
+    height: 3rem;
+    padding-top: 1rem;
 }
